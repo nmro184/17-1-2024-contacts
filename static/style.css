@@ -1,0 +1,6 @@
+.object{
+    display: flex;
+    flex-direction: row;
+    gap : 15px;
+    direction: rtl;
+}

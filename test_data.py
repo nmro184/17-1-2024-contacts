@@ -7,10 +7,10 @@ def add_contacts(a):
         cur = conn.cursor()
         
         for i in range(a):
-            profile = Faker(locale = "he_IL").simple_profile()
-            phone = Faker(locale = "he_IL").phone_number()
+            profile = Faker().simple_profile()
+            phone = Faker().phone_number()
             rows = cur.execute(f"INSERT INTO contacts (name , email , phone ) VALUES ('{profile['name']}' , '{profile['mail']}' , '{phone}' )")
         print (rows)
         return rows.fetchall()
     
-add_contacts(15)
+add_contacts(50)
