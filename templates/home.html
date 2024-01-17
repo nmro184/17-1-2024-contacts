@@ -7,6 +7,14 @@
                 message.innerHTML = "please fill out the name";
                 return;
             }
+            if (document.getElementById("phone").value[0] != 0 || document.getElementById("phone").value[1] != 5){
+                message.innerHTML = "please fill in a valid phone number"
+                    return;
+            }
+            if (!document.getElementById("email").value.includes("@")){
+                message.innerHTML = "please fill in a valid email"
+                return;
+            }
             createForm.submit()
         }
         function validate(email , formid){
