@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
     <script>
+        function validateCreate(){
+            if (document.getElementById("name").value == ""){
+                message.innerHTML = "please fill out the name";
+                return;
+            }
+            createForm.submit()
+        }
         function validate(email , formid){
             if(email.includes("gmail")){
-                alert("cannot delete this user")
+                alert("cannot delete this user");
                 return;
             }
             document.getElementById(formid).submit();
@@ -17,6 +24,14 @@
     <title>contacts</title>
 </head>
 <body>
+    <div id="message" class="message"></div>
+    <form action="/create" method="POST" id="createForm">
+        <input type="text" name = "name" placeholder = "name" id="name">
+        <input type="text" name = "phone" placeholder="phone" id="phone">
+        <input type="text" name = "email" placeholder="email" id="email">
+    </form>
+    <button onclick="validateCreate()"> create contact</button>
+
     {% for contact in contacts %}
     <div class = "object">
         <div> {{contact.name}}</div>
