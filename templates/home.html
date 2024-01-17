@@ -7,6 +7,14 @@
     <title>contacts</title>
 </head>
 <body>
-    {{contacts}}
+    {% for contact in contacts %}
+        <div> {{contact.name}}</div>
+        <div> {{contact.email}}</div>
+        <div> {{contact.phone}}</div>
+        <form action="/delete" method="get"> 
+            <input type="hidden" name="id" value="{{contact.id}}">
+            <input type="submit" value="Delete">
+        </form>
+    {% endfor %}
 </body>
 </html>
